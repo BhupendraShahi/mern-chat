@@ -10,9 +10,10 @@ const Message = require('./models/Message');
 const ws = require('ws');
 const fs = require('fs');
 
-dotenv.config()
+dotenv.config();
 
 const dbUrl = process.env.MONGO_URL;
+
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
@@ -31,7 +32,7 @@ app.use(cookieParser());
 // console.log(process.env.CLIENT_URL)
 app.use(cors({
   credentials: true,
-  origin: process.env.CLIENT_URL,
+  origin: [process.env.CLIENT_URL, process.env.SOCKET_URL],
 }));
 
 async function getUserDataFromRequest(req) {
