@@ -1,10 +1,10 @@
 import {useContext, useEffect, useRef, useState} from "react";
-import Avatar from "../components/Avatar";
-import Logo from "../components/Logo";
-import {UserContext} from "../UserContext.jsx";
+import Avatar from "./Avatar";
+import Logo from "./Logo";
+import {UserContext} from "./UserContext.jsx";
 import {uniqBy} from "lodash";
 import axios from "axios";
-import Contact from "../components/Contact";
+import Contact from "./Contact";
 
 export default function Chat() {
   const [ws,setWs] = useState(null);
