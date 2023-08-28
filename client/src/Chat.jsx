@@ -19,7 +19,7 @@ export default function Chat() {
     connectToWs();
   }, [selectedUserId]);
   function connectToWs() {
-    const ws = new WebSocket('ws://mern-chat-server-9v8i.onrender.com');
+    const ws = new WebSocket('ws://localhost:4040');
     setWs(ws);
     ws.addEventListener('message', handleMessage);
     ws.addEventListener('close', () => {
@@ -48,7 +48,7 @@ export default function Chat() {
     }
   }
   function logout() {
-    axios.post('/logout').then(() => {
+    axios.post('logout').then(() => {
       setWs(null);
       setId(null);
       setUsername(null);
